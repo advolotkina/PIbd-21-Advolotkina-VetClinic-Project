@@ -16,6 +16,8 @@ namespace VetClinicService.ViewModels
 
         public int Count { get; set; }
 
+        public double DrugPrice { set; get; }
+
         public string DrugName { get; set; }
     }
 }

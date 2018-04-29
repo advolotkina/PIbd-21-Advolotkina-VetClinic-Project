@@ -7,13 +7,10 @@ namespace VetClinicService.BindingModels
     {
         public int Id { get; set; }
         
-        public int AdminId { get; set; }
         
         public DateTime DateCreate { get; set; }
-        
-        public string Address { get; set; }
-        
-        public string Format { get; set; }
+
+        public int Price { get; set; }
 
         public virtual List<RequestDrugBindingModel> RequestDrugs { get; set; }
     }

@@ -26,7 +26,9 @@ namespace VetClinicService.ImplementationsDB
             }
             context.Drugs.Add(new Drug
             {
-                DrugName = model.DrugName
+                DrugName = model.DrugName,
+                Price = model.Price,
+                Count = model.Count
             });
             context.SaveChanges();
         }
@@ -53,7 +55,9 @@ namespace VetClinicService.ImplementationsDB
                 return new DrugViewModel
                 {
                     Id = element.Id,
-                    DrugName = element.DrugName
+                    DrugName = element.DrugName,
+                    Price = element.Price,
+                    Count = element.Count
                 };
             }
             throw new Exception("Элемент не найден");
@@ -65,7 +69,9 @@ namespace VetClinicService.ImplementationsDB
                .Select(rec => new DrugViewModel
                {
                    Id = rec.Id,
-                   DrugName = rec.DrugName
+                   DrugName = rec.DrugName,
+                   Price = rec.Price,
+                   Count = rec.Count
                })
                .ToList();
             return result;
@@ -75,6 +81,7 @@ namespace VetClinicService.ImplementationsDB
         {
             Drug element = context.Drugs.FirstOrDefault(rec =>
                                         rec.DrugName == model.DrugName && rec.Id != model.Id);
+            //Console.WriteLine(element.DrugName + " " + element.Price + " " + element.Count);
             if (element != null)
             {
                 throw new Exception("Уже есть медикамент с таким названием");
@@ -85,6 +92,9 @@ namespace VetClinicService.ImplementationsDB
                 throw new Exception("Элемент не найден");
             }
             element.DrugName = model.DrugName;
+            element.Price = model.Price;
+            element.Count = model.Count;
+           // Console.WriteLine(element.DrugName + " " + element.Price + " " + element.Count);
             context.SaveChanges();
         }
     }

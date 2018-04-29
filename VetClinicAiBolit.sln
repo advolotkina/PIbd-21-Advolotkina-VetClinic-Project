@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinicModel", "VetClinic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinicService", "VetClinicService\VetClinicService.csproj", "{D595B11D-CB69-42A1-A9B6-976BCEA411C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinicView", "VetClinicView\VetClinicView.csproj", "{FFE71E30-90C1-41A1-A0D7-F5CF03909684}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D595B11D-CB69-42A1-A9B6-976BCEA411C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D595B11D-CB69-42A1-A9B6-976BCEA411C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D595B11D-CB69-42A1-A9B6-976BCEA411C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE71E30-90C1-41A1-A0D7-F5CF03909684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE71E30-90C1-41A1-A0D7-F5CF03909684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE71E30-90C1-41A1-A0D7-F5CF03909684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE71E30-90C1-41A1-A0D7-F5CF03909684}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

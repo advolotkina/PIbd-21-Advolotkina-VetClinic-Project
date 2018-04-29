@@ -12,8 +12,10 @@ namespace VetClinicService.Interfaces
 
         void AddElement(RequestBindingModel model);
 
+        void DelElement(int id);
+
         void SaveRequestToDocFile(RequestViewModel model, string filename);
 
-        void SaveRequestToXlslFile(RequestViewModel model, string filename);
+        void SaveRequestToXlsFile(RequestViewModel model, string filename);
     }
 }

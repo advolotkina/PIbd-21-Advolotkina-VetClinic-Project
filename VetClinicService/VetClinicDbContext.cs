@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using VetClinicModel;
 
 namespace VetClinicService
@@ -23,5 +24,8 @@ namespace VetClinicService
         public virtual DbSet<RequestDrug> RequestDrugs { get; set; }
 
         public virtual DbSet<ServiceDrug> ServiceDrugs { get; set; }
+        
+        
+
     }
 }

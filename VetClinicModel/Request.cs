@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace VetClinicModel
 {
+    [DataContract]
     public class Request
     {
+        [DataMember]
         public int Id { get; set; }
 
-        [Required]
-        public int AdminId { get; set; }
-
+        [DataMember]
         [Required]
         public DateTime DateCreate { get; set; }
 
+        [DataMember]
         [Required]
-        public string Address { get; set; }
-
-        [Required]
-        public string Format { get; set; }
+        public int Price { get; set; }
 
         [ForeignKey("RequestId")]
         public virtual List<RequestDrug> RequestDrugs { get; set; }

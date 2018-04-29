@@ -27,9 +27,7 @@ namespace VetClinicService.ImplementationsDB
                 .Select(rec => new RequestViewModel
                 {
                     Id = rec.Id,
-                    AdminId = rec.AdminId,
-                    Address = rec.Address,
-                    Format = rec.Format,
+                    Price = rec.Price,
                     DateCreate = rec.DateCreate.ToString(),
                     RequestDrugs = context.RequestDrugs
                             .Where(recPR => recPR.RequestId == rec.Id)
@@ -48,6 +46,8 @@ namespace VetClinicService.ImplementationsDB
                 .ToList();
         }
 
+        
+
         public RequestViewModel GetElement(int id)
         {
             Request request = context.Requests.FirstOrDefault(rec => rec.Id == id);
@@ -56,9 +56,7 @@ namespace VetClinicService.ImplementationsDB
                 return new RequestViewModel
                 {
                     Id = request.Id,
-                    AdminId = request.AdminId,
-                    Address = request.Address,
-                    Format = request.Format,
+                    Price = request.Price,
                     DateCreate = request.DateCreate.ToString(),
                     RequestDrugs = context.RequestDrugs
                             .Where(recPC => recPC.RequestId == request.Id)
@@ -68,6 +66,7 @@ namespace VetClinicService.ImplementationsDB
                                 RequestId = recPC.RequestId,
                                 DrugId = recPC.DrugId,
                                 DrugName = recPC.Drug.DrugName,
+                                Price = recPC.Drug.Price,
                                 Count = recPC.Count
                             }
                             )
@@ -89,7 +88,7 @@ namespace VetClinicService.ImplementationsDB
 
                     request = new Request
                     {
-                        AdminId = model.AdminId,
+                        Price = model.Price,
                         DateCreate = model.DateCreate
                     };
                     context.Requests.Add(request);
@@ -197,13 +196,100 @@ namespace VetClinicService.ImplementationsDB
                 excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
                 excelcells.Font.Name = "Times New Roman";
                 excelcells.Font.Size = 12;
-                
 
-                //var dict = model.RequestDrugs;
-                //if (dict != null)
-                //{
-                //    excelcells = excelworksheet.get_Range("A4", "A4");
-                //}
+                excelcells = excelcells.get_Offset(0, 1);
+                excelcells.ColumnWidth = 15;
+                excelcells.Value2 = "Цена";
+                excelcells.RowHeight = 25;
+                excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                excelcells.Font.Name = "Times New Roman";
+                excelcells.Font.Size = 12;
+
+                double totalSum = 0;
+                var dict = model.RequestDrugs;
+                if (dict != null)
+                {
+                    excelcells = excelworksheet.get_Range("A4", "A4");
+                    foreach (var elem in dict)
+                    {
+                        double productSum = elem.Count * elem.Price;
+                        totalSum += productSum;
+
+
+                        var excelBorder =
+                            excelworksheet.get_Range(excelcells, excelcells.get_Offset(dict.Count, 2));
+                        excelBorder.Borders.LineStyle = XlLineStyle.xlContinuous;
+                        excelBorder.Borders.Weight = XlBorderWeight.xlThin;
+                        excelBorder.HorizontalAlignment = Constants.xlCenter;
+                        excelBorder.VerticalAlignment = Constants.xlCenter;
+                        excelBorder.BorderAround(XlLineStyle.xlContinuous,
+                                                XlBorderWeight.xlMedium,
+                                                XlColorIndex.xlColorIndexAutomatic, 1);
+
+                        excelcells = excelcells.get_Offset(1, 0);
+                        excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                        excelcells.Font.Name = "Times New Roman";
+                        excelcells.Font.Size = 12;
+                        excelcells.ColumnWidth = 15;
+                        excelcells.Value2 = elem.DrugName;
+
+                        excelcells = excelcells.get_Offset(0, 1);
+                        excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                        excelcells.Font.Name = "Times New Roman";
+                        excelcells.Font.Size = 12;
+                        excelcells.ColumnWidth = 15;
+                        excelcells.Value2 = elem.Count;
+
+                        excelcells = excelcells.get_Offset(0, 1);
+                        excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                        excelcells.Font.Name = "Times New Roman";
+                        excelcells.Font.Size = 12;
+                        excelcells.ColumnWidth = 15;
+                        excelcells.Value2 = elem.Price;
+                        excelcells = excelcells.get_Offset(1, -2);
+
+                        excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                        excelcells.Font.Name = "Times New Roman";
+                        excelcells.Font.Size = 12;
+                        excelcells.Font.Bold = true;
+                        excelcells.Value2 = "Итого";
+
+                        excelcells = excelcells.get_Offset(0, 2);
+                        excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                        excelcells.Font.Name = "Times New Roman";
+                        excelcells.Font.Size = 12;
+                        excelcells.Font.Bold = true;
+                        excelcells.ColumnWidth = 15;
+                        excelcells.Value2 = productSum.ToString();
+
+                        excelcells = excelcells.get_Offset(1, -2);
+                    }
+                    excelcells = excelcells.get_Offset(1, 0);
+                    excelcells.Font.Bold = true;
+                    excelcells.Value2 = "Итого";
+                    excelcells.RowHeight = 25;
+                    excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                    excelcells.Font.Name = "Times New Roman";
+                    excelcells.Font.Size = 12;
+
+                    excelcells = excelcells.get_Offset(0, 2);
+                    excelcells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    excelcells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                    excelcells.Font.Bold = true;
+                    excelcells.Font.Name = "Times New Roman";
+                    excelcells.Font.Size = 12;
+                    excelcells.Value2 = totalSum;
+
+                    excel.Workbooks[1].Save();
+                    excel.Quit();
+                }
             }
             catch (Exception)
             {
@@ -255,22 +341,22 @@ namespace VetClinicService.ImplementationsDB
                 paragraphTableFormat.SpaceAfter = 0;
                 paragraphTableFormat.SpaceBefore = 0;
 
-                table.Cell(1, 1).Range.Text = "Продукт";
+                table.Cell(1, 1).Range.Text = "Медикамент";
                 table.Cell(1, 2).Range.Text = "Количество";
                 table.Cell(1, 3).Range.Text = "Цена";
-                table.Cell(1, 4).Range.Text = "Цена за продукт";
+                table.Cell(1, 4).Range.Text = "Сумма";
 
                 double totalSum = 0;
 
                 for (int i = 0; i < requestDrugs.Count; ++i)
                 {
-                    double productSum = requestDrugs[i].Count * requestDrugs[i].ProductPrice;
-                    totalSum += productSum;
+                    double drugSum = requestDrugs[i].Count * requestDrugs[i].Price;
+                    totalSum += drugSum;
 
-                    table.Cell(i + 2, 1).Range.Text = requestDrugs[i].ProductName;
+                    table.Cell(i + 2, 1).Range.Text = requestDrugs[i].DrugName;
                     table.Cell(i + 2, 2).Range.Text = requestDrugs[i].Count.ToString();
-                    table.Cell(i + 2, 3).Range.Text = requestDrugs[i].ProductPrice.ToString();
-                    table.Cell(i + 2, 4).Range.Text = productSum.ToString();
+                    table.Cell(i + 2, 3).Range.Text = requestDrugs[i].Price.ToString();
+                    table.Cell(i + 2, 4).Range.Text = drugSum.ToString();
                 }
 
                 table.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleInset;
@@ -307,6 +393,7 @@ namespace VetClinicService.ImplementationsDB
                     ref missing, ref missing, ref missing, ref missing,
                     ref missing);
                 document.Close(ref missing, ref missing, ref missing);
+                winword.Quit();
             }
             catch (Exception)
             {
@@ -315,6 +402,20 @@ namespace VetClinicService.ImplementationsDB
             finally
             {
                 winword.Quit();
+            }
+        }
+
+        public void DelElement(int id)
+        {
+            Request element = context.Requests.FirstOrDefault(rec => rec.Id == id);
+            if (element != null)
+            {
+                context.Requests.Remove(element);
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Элемент не найден");
             }
         }
     }
