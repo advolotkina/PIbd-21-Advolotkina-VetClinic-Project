@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFE71E30-90C1-41A1-A0D7-F5CF03909684}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VetClinicView</RootNamespace>
+    <AssemblyName>VetClinicView</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>VetClinicView.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NRules, Version=0.8.4.0, Culture=neutral, PublicKeyToken=8ad544355a4a2176, processorArchitecture=MSIL">
+      <HintPath>..\packages\NRules.Runtime.0.8.4\lib\net45\NRules.dll</HintPath>
+    </Reference>
+    <Reference Include="NRules.Fluent, Version=0.8.4.0, Culture=neutral, PublicKeyToken=8ad544355a4a2176, processorArchitecture=MSIL">
+      <HintPath>..\packages\NRules.Fluent.0.8.4\lib\net45\NRules.Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="NRules.RuleModel, Version=0.8.4.0, Culture=neutral, PublicKeyToken=8ad544355a4a2176, processorArchitecture=MSIL">
+      <HintPath>..\packages\NRules.RuleModel.0.8.4\lib\net45\NRules.RuleModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAddRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddRequest.designer.cs">
+      <DependentUpon>FormAddRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddRequestDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddRequestDrug.designer.cs">
+      <DependentUpon>FormAddRequestDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDrug.Designer.cs">
+      <DependentUpon>FormDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDrugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDrugs.Designer.cs">
+      <DependentUpon>FormDrugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReports.Designer.cs">
+      <DependentUpon>FormReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRequests.designer.cs">
+      <DependentUpon>FormRequests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSendRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSendRequest.designer.cs">
+      <DependentUpon>FormSendRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormService.Designer.cs">
+      <DependentUpon>FormService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServiceDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServiceDrug.Designer.cs">
+      <DependentUpon>FormServiceDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServices.Designer.cs">
+      <DependentUpon>FormServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewRequest.designer.cs">
+      <DependentUpon>FormViewRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="FormAddRequest.resx">
+      <DependentUpon>FormAddRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddRequestDrug.resx">
+      <DependentUpon>FormAddRequestDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDrug.resx">
+      <DependentUpon>FormDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDrugs.resx">
+      <DependentUpon>FormDrugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReports.resx">
+      <DependentUpon>FormReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRequests.resx">
+      <DependentUpon>FormRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSendRequest.resx">
+      <DependentUpon>FormSendRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormService.resx">
+      <DependentUpon>FormService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServiceDrug.resx">
+      <DependentUpon>FormServiceDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServices.resx">
+      <DependentUpon>FormServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewRequest.resx">
+      <DependentUpon>FormViewRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportRequestsAndServices.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\VetClinicService.ViewModels.RequestDrugViewModel.datasource" />
+    <None Include="Properties\DataSources\VetClinicService.ViewModels.RequestViewModel.datasource" />
+    <None Include="Properties\DataSources\VetClinicService.ViewModels.ServiceViewModel.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VetClinicService\VetClinicService.csproj">
+      <Project>{D595B11D-CB69-42A1-A9B6-976BCEA411C8}</Project>
+      <Name>VetClinicService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
